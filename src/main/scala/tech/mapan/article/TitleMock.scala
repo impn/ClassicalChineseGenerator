@@ -1,4 +1,5 @@
 package tech.mapan.article
+
 import scala.io.Source
 import scala.util.Random
 
@@ -9,22 +10,13 @@ object TitleMock {
 
   def title: String = {
 
-    // 获取1.txt
-    val i1 = TitleMock.getClass.getResourceAsStream("/1.txt")
+    // 以流的方式获取1.txt
+    val stream = TitleMock.getClass.getResourceAsStream("/1.txt")
 
-    // 导入常用汉语库
-    val source =  Source.fromInputStream(i1)("UTF8")
-
-    // 剥离出每一行数据
-    val lines: List[String] = source.getLines.toList
-
-    val list: List[String] = lines.map {
+    // 剥离出词语组成一个List
+    val list: List[String] = Source.fromInputStream(stream)("UTF8").getLines.toList.map {
       f => {
-        val list = f.split("\t").toList
-        var a1 = list.head // 词语
-        var a2 = list(1) // 拼音
-        var a3 = list(2) // 词频
-        a1
+        f.split("\t").toList.head
       }
     }
 
