@@ -9,11 +9,7 @@
 
 # 安装
 ```
-git clone git@github.com:impn/ClassicalChineseGenerator.git
-cd ClassicalChineseGenerator
-mvn clean compile
-mvn clean test
-mvn clean package
+npm install classical-chinese-generator
 ```
 
 # 使用
